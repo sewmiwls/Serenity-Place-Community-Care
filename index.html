@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Serenity Place Community Care - Compassionate Aged Care</title>
+    <meta name="description" content="Serenity Place Community Care provides compassionate, respectful, and person-centred aged care services in Mount Gravatt, QLD. Empowering independence at home.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-teal: #59959E;
+            --primary-dark: #3F6F76;
+            --secondary-sage: #A9C9BE;
+            --accent-blue: #B8D3E0;
+            --bg-ivory: #FAF9F7;
+            --surface-white: #FFFFFF;
+            --text-dark: #2F3E46;
+            --text-muted: #5F6C72;
+            --border-gray: #DCE5E7;
+            --transition: all 0.3s ease;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Montserrat', sans-serif; color: var(--text-muted); line-height: 1.6; background-color: var(--surface-white); }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--text-dark); }
+        a { text-decoration: none; color: inherit; transition: var(--transition); }
+        
+        ul { list-style: none; list-style-type: none; padding: 0; margin: 0; }
+        
+        .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 0 15px; }
+        .section-padding { padding: 80px 0; }
+        .btn { display: inline-block; padding: 12px 30px; border-radius: 30px; font-weight: 600; font-size: 0.95rem; text-align: center; cursor: pointer; transition: var(--transition); }
+        .btn-primary { background-color: var(--primary-teal); color: var(--surface-white); border: 2px solid var(--primary-teal); }
+        .btn-primary:hover { background-color: transparent; color: var(--primary-teal); border-color: var(--primary-teal); }
+        .btn-secondary { background-color: transparent; color: var(--surface-white); border: 2px solid var(--surface-white); }
+        .btn-secondary:hover { background-color: var(--surface-white); color: var(--primary-dark); }
+        .text-center { text-align: center; }
+        .section-title { font-size: 2.5rem; margin-bottom: 15px; color: var(--primary-dark); }
+        .section-subtitle { font-size: 1.1rem; color: var(--text-muted); max-width: 700px; margin: 0 auto 50px auto; font-style: italic; }
+
+        /* TOP BAR */
+        .top-bar { background-color: var(--primary-dark); color: var(--surface-white); font-size: 0.85rem; padding: 8px 0; }
+        .top-bar-content { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+        .top-bar-info span { margin-right: 20px; }
+        .top-bar-info i { margin-right: 6px; color: var(--accent-blue); }
+
+        /* HEADER & NAVIGATION */
+        header { background-color: var(--surface-white); box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--border-gray); }
+        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; }
+        .logo img { height: 70px; width: auto; display: block; border: none; }
+        
+        .nav-menu { display: flex; align-items: center; list-style: none; list-style-type: none; }
+        .nav-item { margin-left: 30px; list-style: none; list-style-type: none; }
+        .nav-link { font-weight: 500; font-size: 1rem; color: var(--text-dark); position: relative; padding: 5px 0; display: block; }
+        .nav-link:hover, .nav-link.active { color: var(--primary-teal); }
+        .nav-link::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background-color: var(--secondary-sage); transition: var(--transition); }
+        .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+        .menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; color: var(--primary-teal); }
+
+        /* HERO BANNER */
+        .hero { background: linear-gradient(135deg, rgba(169, 201, 190, 0.6) 0%, rgba(95, 149, 158, 0.75) 55%, rgba(63, 111, 118, 0.9) 100%), url('https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover; padding: 160px 0 140px 0; color: var(--surface-white); }
+        .hero-content { max-width: 650px; }
+        .hero h1 { font-size: 3.5rem; color: var(--surface-white); margin-bottom: 20px; font-weight: 700; line-height: 1.2; }
+        .hero p { font-size: 1.2rem; margin-bottom: 35px; opacity: 0.95; }
+        .hero-btns .btn { margin-right: 15px; margin-bottom: 10px; }
+
+        /* ABOUT SUMMARY */
+        .about-grid { display: flex; align-items: center; gap: 50px; }
+        .about-text { flex: 1; }
+        .about-img { flex: 1; }
+        .about-img img { width: 100%; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); display: block; border: 1px solid var(--border-gray); }
+        .about-tagline { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--primary-teal); margin-bottom: 15px; font-style: italic; }
+        .about-text p { margin-bottom: 20px; color: var(--text-muted); }
+
+        /* VALUES SECTION */
+        .values-section { background-color: var(--bg-ivory); }
+        .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; }
+        .value-card { background: var(--surface-white); padding: 40px 25px; border-radius: 8px; border-bottom: 4px solid var(--secondary-sage); box-shadow: 0 4px 15px rgba(0,0,0,0.01); transition: var(--transition); border-top: 1px solid var(--border-gray); border-left: 1px solid var(--border-gray); border-right: 1px solid var(--border-gray); }
+        .value-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.04); border-bottom-color: var(--primary-teal); }
+        .value-icon { font-size: 2.5rem; color: var(--primary-teal); margin-bottom: 20px; }
+        .value-card h3 { font-family: 'Montserrat', sans-serif; font-size: 1.25rem; font-weight: 600; margin-bottom: 12px; color: var(--text-dark); }
+        .value-card p { font-size: 0.9rem; color: var(--text-muted); }
+
+        /* SERVICES PREVIEW */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 40px; }
+        .service-card { border: 1px solid var(--border-gray); border-radius: 12px; overflow: hidden; transition: var(--transition); background: var(--surface-white); }
+        .service-card:hover { box-shadow: 0 10px 30px rgba(0,0,0,0.05); transform: translateY(-3px); border-color: var(--secondary-sage); }
+        .service-img img { width: 100%; height: 220px; object-fit: cover; display: block; }
+        .service-body { padding: 25px; }
+        .service-body h3 { font-family: 'Montserrat', sans-serif; font-size: 1.2rem; font-weight: 600; margin-bottom: 12px; color: var(--text-dark); }
+        .service-body p { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 20px; height: 70px; overflow: hidden; }
+        .readmore-link { font-weight: 600; color: var(--primary-teal); font-size: 0.9rem; display: flex; align-items: center; }
+        .readmore-link i { margin-left: 5px; font-size: 0.8rem; transition: var(--transition); }
+        .readmore-link:hover i { transform: translateX(5px); color: var(--primary-dark); }
+
+        /* WHY CHOOSE US */
+        .why-us { background: linear-gradient(rgba(250, 249, 247, 0.94), rgba(250, 249, 247, 0.94)), url('https://images.unsplash.com/photo-1581579438747-1dc8d1e0ca96?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover; border-top: 1px solid var(--border-gray); border-bottom: 1px solid var(--border-gray); }
+        .why-grid { display: flex; align-items: center; gap: 50px; }
+        .why-content { flex: 1; }
+        .why-features { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-top: 30px; }
+        .feature-item { display: flex; gap: 15px; }
+        .feature-icon { font-size: 1.5rem; color: var(--primary-teal); margin-top: 4px; }
+        .feature-text h4 { font-family: 'Montserrat', sans-serif; font-weight: 600; margin-bottom: 6px; font-size: 1.05rem; color: var(--text-dark); }
+        .feature-text p { font-size: 0.9rem; color: var(--text-muted); }
+
+        /* FAQ SECTION */
+        .faq-holder { max-width: 800px; margin: 0 auto; }
+        .faq-item { border-bottom: 1px solid var(--border-gray); padding: 20px 0; }
+        .faq-question { display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-weight: 600; font-size: 1.1rem; color: var(--primary-dark); }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; color: var(--text-muted); font-size: 0.95rem; margin-top: 0; }
+        .faq-answer p { padding-top: 10px; }
+        .faq-icon { transition: transform 0.3s ease; font-size: 0.9rem; color: var(--primary-teal); }
+        .faq-item.active .faq-icon { transform: rotate(180deg); }
+        .faq-item.active .faq-answer { max-height: 200px; }
+
+        /* CTA BANNER */
+        .cta-banner { background-color: var(--primary-teal); color: var(--surface-white); padding: 60px 0; text-align: center; }
+        .cta-banner h2 { color: var(--surface-white); font-size: 2.2rem; margin-bottom: 15px; }
+        .cta-banner p { font-size: 1.1rem; margin-bottom: 30px; opacity: 0.95; max-width: 600px; margin-left: auto; margin-right: auto; }
+
+        /* FOOTER */
+        footer { background-color: #1A252C; color: #BAC4CB; padding: 70px 0 20px 0; font-size: 0.9rem; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 40px; margin-bottom: 50px; }
+        .footer-logo img { height: 65px; margin-bottom: 20px; }
+        .footer-about p { margin-bottom: 20px; line-height: 1.5; }
+        .footer-title { color: var(--surface-white); font-family: 'Montserrat', sans-serif; font-size: 1.1rem; font-weight: 600; margin-bottom: 25px; position: relative; padding-bottom: 8px; }
+        .footer-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 30px; height: 2px; background-color: var(--secondary-sage); }
+        .footer-links li { margin-bottom: 12px; }
+        .footer-links a:hover { color: var(--surface-white); padding-left: 5px; }
+        .footer-contact li { display: flex; margin-bottom: 15px; align-items: flex-start; }
+        .footer-contact i { color: var(--secondary-sage); margin-right: 12px; margin-top: 4px; }
+        .footer-bottom { border-top: 1px solid #2D3D47; padding-top: 20px; text-align: center; font-size: 0.8rem; }
+
+        /* RESPONSIVE */
+        @media (max-width: 992px) {
+            .about-grid, .why-grid { flex-direction: column; gap: 40px; }
+            .about-img { width: 100%; max-width: 500px; margin: 0 auto; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .hero h1 { font-size: 2.8rem; }
+        }
+        @media (max-width: 768px) {
+            .menu-toggle { display: block; }
+            .nav-menu { position: fixed; top: 105px; left: -100%; background-color: var(--surface-white); width: 100%; height: calc(100vh - 105px); flex-direction: column; align-items: center; padding-top: 40px; box-shadow: 0 10px 15px rgba(0,0,0,0.05); transition: 0.4s ease; }
+            .nav-menu.active { left: 0; }
+            .nav-item { margin: 20px 0; margin-left: 0; }
+            .top-bar-content { justify-content: center; gap: 10px; }
+            .why-features { grid-template-columns: 1fr; }
+            .hero { padding: 100px 0 90px 0; text-align: center; }
+            .hero-btns .btn { margin: 5px; }
+            .section-title { font-size: 2rem; }
+            .footer-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <div class="container top-bar-content">
+            <div class="top-bar-info">
+                <span><i class="fa-solid fa-phone"></i> 0404 920 503</span>
+                <span><i class="fa-solid fa-envelope"></i> Tristargroup00@gmail.com</span>
+            </div>
+            <div class="top-bar-tag">Caring with Compassion, Supporting with Dignity</div>
+        </div>
+    </div>
+
+    <header>
+        <div class="container navbar">
+            <a href="index.html" class="logo">
+                <img src="logo.jpeg" alt="Serenity Place Community Care Logo">
+            </a>
+            <div class="menu-toggle" id="mobile-menu">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link active">Home</a></li>
+                <li class="nav-item"><a href="about.html" class="nav-link">About Us</a></li>
+                <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
+                <li class="nav-item"><a href="contact.html" class="nav-link">Contact Us</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Nurturing Care Tailored To Your Unique Journey</h1>
+                <p>At Serenity Place Community Care, we deliver premium, person-centred aged care services that foster independence, protect dignity, and elevate quality of life right at home.</p>
+                <div class="hero-btns">
+                    <a href="services.html" class="btn btn-primary">Explore Services</a>
+                    <a href="contact.html" class="btn btn-secondary">Get In Touch</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text">
+                    <div class="about-tagline">Welcome to Serenity Place Community Care</div>
+                    <h2 class="section-title" style="font-size: 2.2rem; margin-bottom: 20px;">Compassionate Care Built Around Your Life</h2>
+                    <p>We are dedicated to enhancing the lives of older Australians by providing trusted, professional support. We believe that exceptional care goes beyond meeting basic physical needs—it is about nurturing emotional wellbeing, cultivating social connection, and fostering a genuine sense of belonging.</p>
+                    <p>Every individual has a unique life story and independent goals. Our experienced care team takes the time to listen deeply, ensuring our support is custom-tailored to remain both empowering and deeply meaningful.</p>
+                    <a href="about.html" class="btn btn-primary" style="margin-top: 10px;">Our Story & Mission</a>
+                </div>
+                <div class="about-img">
+                    <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=600&q=80" alt="Caring Support Staff with Elder Client">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding values-section">
+        <div class="container">
+            <h2 class="section-title text-center">The Values That Guide Us</h2>
+            <p class="section-subtitle text-center">Our core principles inspire us daily to design a warm, welcoming environment where everyone feels valued and heard.</p>
+            <div class="values-grid">
+                <div class="value-card text-center">
+                    <div class="value-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+                    <h3>Compassion</h3>
+                    <p>Delivering heartfelt care with empathy, kindness, and deep understanding.</p>
+                </div>
+                <div class="value-card text-center">
+                    <div class="value-icon"><i class="fa-solid fa-hands-holding"></i></div>
+                    <h3>Dignity</h3>
+                    <p>Honouring your privacy, self-respect, and unique choice in lifestyle.</p>
+                </div>
+                <div class="value-card text-center">
+                    <div class="value-icon"><i class="fa-solid fa-balance-scale"></i></div>
+                    <h3>Integrity</h3>
+                    <p>Upholding transparency, ultimate professionalism, and absolute trust in all we do.</p>
+                </div>
+                <div class="value-card text-center">
+                    <div class="value-icon"><i class="fa-solid fa-people-roof"></i></div>
+                    <h3>Community</h3>
+                    <p>Encouraging safe social connection and creating a sense of authentic belonging.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="container">
+            <h2 class="section-title text-center">Our Core Support Services</h2>
+            <p class="section-subtitle text-center">We offer an extensive selection of tailored aged care services to facilitate safe and independent living.</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-img"><img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80" alt="Assistance with Self Care"></div>
+                    <div class="service-body">
+                        <h3>Self-Care & Daily Living</h3>
+                        <p>Respectful support with personal tasks like bathing, dressing, grooming, mobility, and eating to maintain wellbeing.</p>
+                        <a href="services.html" class="readmore-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-img"><img src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&w=1200&q=80" alt="Medication Administration Support"></div>
+                    <div class="service-body">
+                        <h3>Medication Support</h3>
+                        <p>Reminders, preparation assistance, and reliable safety supervision following strict healthcare provider instructions.</p>
+                        <a href="services.html" class="readmore-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-img"><img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=500&q=80" alt="Social Support and Interaction"></div>
+                    <div class="service-body">
+                        <h3>Social & Community Care</h3>
+                        <p>One-on-one companionship or group activities tailored to keep you vibrant, active, and fully connected.</p>
+                        <a href="services.html" class="readmore-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center" style="margin-top: 20px;">
+                <a href="services.html" class="btn btn-primary">View All Services</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding why-us">
+        <div class="container">
+            <div class="why-grid">
+                <div class="why-content">
+                    <h2 class="section-title">Why Families Trust Serenity Place</h2>
+                    <p>Choosing the perfect community care provider is an important decision. We stand out by combining clinical-level oversight with a warm, household touch that makes clients feel safer.</p>
+                    <div class="why-features">
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fa-solid fa-user-shield"></i></div>
+                            <div class="feature-text">
+                                <h4>Person-Centred Focus</h4>
+                                <p>We adjust to your schedules, personal preferences, and individual cultural background.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fa-solid fa-user-doctor"></i></div>
+                            <div class="feature-text">
+                                <h4>Experienced Staff</h4>
+                                <p>Our professionals undergo vetting and training to serve you with top expertise.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fa-solid fa-user-shield"></i></div>
+                            <div class="feature-text">
+                                <h4>Complete Home Solutions</h4>
+                                <p>From continuous nursing support down to routine house cleaning and laundry help.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon"><i class="fa-solid fa-handshake"></i></div>
+                            <div class="feature-text">
+                                <h4>Peace of Mind</h4>
+                                <p>Dependable, continuous communication with families ensuring complete transparency.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="container">
+            <h2 class="section-title text-center">Frequently Asked Questions</h2>
+            <p class="section-subtitle text-center">Quick answers to common questions about our professional in-home aged care services.</p>
+            <div class="faq-holder">
+                <div class="faq-item">
+                    <div class="faq-question">What areas do you service? <span class="faq-icon"><i class="fa-solid fa-chevron-down"></i></span></div>
+                    <div class="faq-answer"><p>We are centrally based in Mount Gravatt, QLD and service the surrounding community areas with reliable in-home aged care support.</p></div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Can you assist with clinical needs? <span class="faq-icon"><i class="fa-solid fa-chevron-down"></i></span></div>
+                    <div class="faq-answer"><p>Yes, we feature qualified Nursing Assistants capable of providing direct and indirect clinical care support aligned with healthcare requirements.</p></div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">How do you structure the care plan? <span class="faq-icon"><i class="fa-solid fa-chevron-down"></i></span></div>
+                    <div class="faq-answer"><p>We listen closely to the individual and family, matching specific preferences, traditions, and required care levels smoothly.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-banner">
+        <div class="container">
+            <h2>Ready to Receive High-Quality In-Home Care?</h2>
+            <p>Get in touch with our compassionate care team today to discuss how we can walk alongside you or your loved one's care journey.</p>
+            <a href="contact.html" class="btn btn-secondary">Contact Us Now</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-about">
+                <div class="footer-logo"><img src="logo.jpeg" alt="Serenity Place Logo White"></div>
+                <p>Dedicated to enhancing the lives of older Australians by providing trusted, compassionate, and person-centred aged care solutions.</p>
+            </div>
+            <div>
+                <h4 class="footer-title">Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer-title">Our Services</h4>
+                <ul class="footer-links">
+                    <li><a href="services.html">Self-Care Support</a></li>
+                    <li><a href="services.html">Social Support</a></li>
+                    <li><a href="services.html">Medication Care</a></li>
+                    <li><a href="services.html">Clinical Care</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer-title">Contact Info</h4>
+                <ul class="footer-contact">
+                    <li><i class="fa-solid fa-location-dot"></i> <span>U3/11 Shire Road,<br>Mount Gravatt QLD 4122</span></li>
+                    <li><i class="fa-solid fa-phone"></i> <span>0404 920 503<br>0411 297 262</span></li>
+                    <li><i class="fa-solid fa-envelope"></i> <span>Tristargroup00@gmail.com</span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Serenity Place Community Care. All Rights Reserved. Designed to Build Trust.</p>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        mobileMenu.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            const icon = mobileMenu.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-xmark');
+        });
+
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                faqItems.forEach(i => i.classList.remove('active'));
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

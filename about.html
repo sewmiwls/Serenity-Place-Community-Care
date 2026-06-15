@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Serenity Place Community Care</title>
+    <meta name="description" content="Learn more about Serenity Place Community Care. Our values of compassion, dignity, and respect guide our tailored in-home aged care support.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-teal: #59959E;
+            --primary-dark: #3F6F76;
+            --secondary-sage: #A9C9BE;
+            --accent-blue: #B8D3E0;
+            --bg-ivory: #FAF9F7;
+            --surface-white: #FFFFFF;
+            --text-dark: #2F3E46;
+            --text-muted: #5F6C72;
+            --border-gray: #DCE5E7;
+            --transition: all 0.3s ease;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Montserrat', sans-serif; color: var(--text-dark); line-height: 1.6; }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--primary-teal); }
+        a { text-decoration: none; color: inherit; transition: var(--transition); }
+        
+        /* Navigation Bullet Dots Removal */
+        ul { list-style: none; list-style-type: none; padding: 0; margin: 0; }
+
+        .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 0 15px; }
+        .section-padding { padding: 80px 0; }
+        .btn { display: inline-block; padding: 12px 30px; border-radius: 30px; font-weight: 600; font-size: 0.95rem; text-align: center; cursor: pointer; transition: var(--transition); }
+        .btn-primary { background-color: var(--primary-teal); color: var(--surface-white); border: 2px solid var(--primary-teal); }
+        .btn-primary:hover { background-color: transparent; color: var(--primary-teal); }
+        
+        /* 1. CREATIVE INNER PAGE HEADER BANNER */
+        .page-header { 
+            background: linear-gradient(135deg, rgba(63, 111, 118, 0.85) 0%, rgba(89, 149, 158, 0.85) 100%), 
+                        url('https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover; 
+            padding: 100px 0; 
+            color: var(--surface-white); 
+            text-align: center; 
+        }
+        .page-header h1 { color: var(--surface-white); font-size: 3rem; margin-bottom: 12px; font-weight: 700; }
+        .breadcrumbs { font-size: 0.95rem; opacity: 0.9; font-weight: 500; }
+        .breadcrumbs a { color: var(--surface-white); font-weight: 600; }
+        .breadcrumbs a:hover { color: var(--secondary-sage); }
+
+        /* TOP BAR */
+        .top-bar { background-color: var(--primary-teal); color: var(--surface-white); font-size: 0.85rem; padding: 8px 0; }
+        .top-bar-content { display: flex; justify-content: space-between; align-items: center; }
+        .top-bar-info span { margin-right: 20px; }
+        .top-bar-info i { margin-right: 6px; color: var(--accent-blue); }
+        
+        /* HEADER & NAVIGATION */
+        header { background-color: var(--surface-white); box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid var(--border-gray); }
+        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; }
+        .logo img { height: 70px; display: block; border: none; }
+        
+        .nav-menu { display: flex; align-items: center; list-style: none; list-style-type: none; }
+        .nav-item { margin-left: 30px; list-style: none; list-style-type: none; }
+        .nav-link { font-weight: 500; font-size: 1rem; color: var(--text-dark); position: relative; padding: 5px 0; display: block; }
+        .nav-link:hover, .nav-link.active { color: var(--primary-teal); }
+        .nav-link::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background-color: var(--primary-teal); transition: var(--transition); }
+        .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+        .menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; color: var(--primary-teal); }
+
+        /* STORY GRID */
+        .story-grid { display: flex; align-items: center; gap: 50px; }
+        .story-content { flex: 1.2; }
+        .story-img { flex: 0.8; }
+        .story-img img { width: 100%; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid var(--border-gray); }
+        .story-content p { margin-bottom: 20px; color: var(--text-muted); }
+        .quote-box { background-color: var(--bg-ivory); border-left: 5px solid var(--primary-teal); padding: 20px; border-radius: 0 8px 8px 0; font-style: italic; margin: 30px 0; font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--primary-dark); }
+
+        /* MISSION & VALUES - 2. MOUSE HOVER ANIMATION ADDED */
+        .mission-vision { background-color: var(--bg-ivory); }
+        .mv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        .mv-box { background: var(--surface-white); padding: 45px; border-radius: 12px; box-shadow: 0 5px 20px rgba(0,0,0,0.02); border: 1px solid var(--border-gray); transition: var(--transition); }
+        
+        /* Mouse එක ගෙනිච්චම උඩට move වෙන Code එක */
+        .mv-box:hover { transform: translateY(-8px); box-shadow: 0 12px 30px rgba(89, 149, 158, 0.15); border-color: var(--primary-teal); }
+        .mv-box i { font-size: 3rem; color: var(--primary-teal); margin-bottom: 20px; }
+        .mv-box h2 { font-size: 1.8rem; margin-bottom: 15px; color: var(--primary-dark); }
+        .mv-box p { color: var(--text-muted); }
+
+        /* HOW WE WORK - 2. MOUSE HOVER ANIMATION ADDED */
+        .process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; margin-top: 40px; }
+        .step-card { text-align: center; position: relative; background: var(--surface-white); padding: 25px 15px; border-radius: 10px; border: 1px solid transparent; transition: var(--transition); }
+        
+        /* Step cards උඩට mouse එක ගෙනිච්චම move වෙන Code එක */
+        .step-card:hover { transform: translateY(-5px); border-color: var(--secondary-sage); box-shadow: 0 8px 20px rgba(0,0,0,0.04); }
+        .step-num { width: 60px; height: 60px; background-color: var(--primary-teal); color: var(--surface-white); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; font-weight: 700; margin: 0 auto 20px auto; border: 4px solid var(--bg-ivory); }
+        .step-card h3 { font-family: 'Montserrat', sans-serif; font-size: 1.1rem; font-weight: 600; margin-bottom: 10px; color: var(--text-dark); }
+        .step-card p { font-size: 0.85rem; color: var(--text-muted); padding: 0 10px; }
+
+        .text-center { text-align: center; }
+
+        /* FOOTER */
+        footer { background-color: #1A252C; color: #BAC4CB; padding: 70px 0 20px 0; font-size: 0.9rem; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 40px; margin-bottom: 50px; }
+        .footer-logo img { height: 65px; margin-bottom: 20px; }
+        .footer-title { color: var(--surface-white); font-family: 'Montserrat', sans-serif; font-size: 1.1rem; font-weight: 600; margin-bottom: 25px; position: relative; padding-bottom: 8px; }
+        .footer-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 30px; height: 2px; background-color: var(--secondary-sage); }
+        .footer-links li { margin-bottom: 12px; }
+        .footer-contact li { display: flex; margin-bottom: 15px; }
+        .footer-contact i { color: var(--primary-teal); margin-right: 12px; margin-top: 4px; }
+        .footer-bottom { border-top: 1px solid #2D3D47; padding-top: 20px; text-align: center; font-size: 0.8rem; }
+
+        @media (max-width: 992px) {
+            .story-grid, .mv-grid, .process-steps { grid-template-columns: 1fr; flex-direction: column; }
+            .step-card { max-width: 350px; margin: 0 auto; }
+        }
+        @media (max-width: 768px) {
+            .menu-toggle { display: block; }
+            .nav-menu { position: fixed; top: 105px; left: -100%; background-color: var(--surface-white); width: 100%; height: calc(100vh - 105px); flex-direction: column; align-items: center; padding-top: 40px; box-shadow: 0 10px 15px rgba(0,0,0,0.05); transition: 0.4s ease; }
+            .nav-menu.active { left: 0; }
+            .nav-item { margin: 20px 0; margin-left: 0; }
+            .page-header h1 { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <div class="container top-bar-content">
+            <div class="top-bar-info">
+                <span><i class="fa-solid fa-phone"></i> 0404 920 503</span>
+                <span><i class="fa-solid fa-envelope"></i> Tristargroup00@gmail.com </span>
+            </div>
+            <div>Serenity Place Community Care </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="container navbar">
+            <a href="index.html" class="logo"><img src="logo.jpeg" alt="Serenity Place Logo"></a>
+            <div class="menu-toggle" id="mobile-menu"><i class="fa-solid fa-bars"></i></div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="about.html" class="nav-link active">About Us</a></li>
+                <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
+                <li class="nav-item"><a href="contact.html" class="nav-link">Contact Us</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>About Our Organisation</h1>
+            <div class="breadcrumbs"><a href="index.html">Home</a> / About Us</div>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="container">
+            <div class="story-grid">
+                <div class="story-content">
+                    <h2 style="font-size: 2.4rem; margin-bottom: 25px; color: var(--primary-dark);">Walking Alongside You on Your Journey</h2>
+                    <p>At Serenity Place Community Care, we are passionately dedicated to enhancing the lives of older Australians by delivering highly compassionate, respectful, and genuinely person-centred aged care services. We recognize that true support must go beyond meeting physical needs—it must nurture emotional wellbeing, promote safe social connection, and create an authentic sense of belonging.</p>
+                    <p>We deeply understand that every single person has an individual story to tell, distinct household needs, and personal independence goals. That is precisely why our experienced, certified professionals take extensive time to actively listen, communicate, and completely custom-tailor services to deliver daily care that feels deeply meaningful and empowering.</p>
+                    
+                    <div class="quote-box">
+                        "Serenity Place Community Care — Caring with Compassion, Supporting with Dignity."
+                    </div>
+                    
+                    <p>As a thoroughly trusted local provider, we strive endlessly to construct highly reliable and completely transparent professional bonds with our clients and their wider families, granting ultimate peace of mind. We are immensely proud to walk actively alongside our premium clients, enabling them to safely thrive in the continuous comfort of their own beloved homes.</p>
+                </div>
+                <div class="story-img">
+                    <img src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&w=600&q=80" alt="Support Worker holding hands with elder client">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding mission-vision">
+        <div class="container">
+            <div class="mv-grid">
+                <div class="mv-box">
+                    <i class="fa-solid fa-bullseye"></i>
+                    <h2>Our Mission </h2>
+                    <p>Our vital core mission is to empower individuals to maintain their personal independence, preserve their absolute dignity, and maximize their overall quality of life while remaining safely and tightly connected to their families, surrounding local communities, and the unique things they value most.</p>
+                </div>
+                <div class="mv-box">
+                    <i class="fa-solid fa-eye"></i>
+                    <h2>Our Vision</h2>
+                    <p>To be established as the premium standard for localized, responsive in-home aged care services. We strive continuously to craft safe, high-quality care environments where older individuals feel entirely heard, continuously valued, and passionately supported to live their independent lives to the absolute fullest.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="container">
+            <h2 class="text-center" style="font-size: 2.3rem; margin-bottom: 10px; color: var(--primary-dark);">How We Work With You</h2>
+            <p class="text-center" style="color: var(--text-muted); max-width: 600px; margin: 0 auto 50px auto; font-style: italic;">A simple, reliable four-step process to establish custom-tailored, professional care support.</p>
+            
+            <div class="process-steps">
+                <div class="step-card">
+                    <div class="step-num">1</div>
+                    <h3>Initial Enquiry</h3>
+                    <p>Reach out via phone or form. Our helpful team will discuss initial parameters and answer queries.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-num">2</div>
+                    <h3>Listening & Planning</h3>
+                    <p>We take time to listen to your unique story, goals, and specific healthcare requirements.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-num">3</div>
+                    <h3>Care Matching</h3>
+                    <p>We match compassionate assistants aligned with your cultural beliefs and routine preferences.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-num">4</div>
+                    <h3>Ongoing Support</h3>
+                    <p>We continuously deliver exceptional care, communicating with medical experts and family.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-about">
+                <div class="footer-logo"><img src="logo.jpeg" alt="Serenity Place Logo White"></div>
+                <p>Providing premium, compassionate, person-centred aged care services across Mount Gravatt, helping individuals thrive at home.</p>
+            </div>
+            <div>
+                <h4 class="footer-title">Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Our Services</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer-title">Core Focus</h4>
+                <ul class="footer-links">
+                    <li>Dignity & Respect </li>
+                    <li>Community Ties </li>
+                    <li>Cultural Diversity </li>
+                    <li>Clinical Care </li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer-title">Contact Info</h4>
+                <ul class="footer-contact">
+                    <li><i class="fa-solid fa-location-dot"></i> <span>U3/11 Shire Road, Mount Gravatt QLD </span></li>
+                    <li><i class="fa-solid fa-phone"></i> <span>0404 920 503 / 0411 297 262 </span></li>
+                    <li><i class="fa-solid fa-envelope"></i> <span>Tristargroup00@gmail.com</span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Serenity Place Community Care. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('mobile-menu').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+            this.querySelector('i').classList.toggle('fa-bars');
+            this.querySelector('i').classList.toggle('fa-xmark');
+        });
+    </script>
+</body>
+</html>

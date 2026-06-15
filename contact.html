@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Serenity Place Community Care</title>
+    <meta name="description" content="Contact Serenity Place Community Care in Mount Gravatt, QLD. Call 0404 920 503 or submit our enquiry form for trusted aged care services.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-teal: #4F8A8B;
+            --primary-dark: #3F6F76;
+            --secondary-sage: #A9C9BE;
+            --accent-blue: #B8D3E0;
+            --bg-ivory: #FAF9F6;
+            --surface-white: #FFFFFF;
+            --text-dark: #2F3E46;
+            --text-muted: #5F6C72;
+            --text-light: #5F6C72;
+            --border-gray: #DCE5E7;
+            --success-bg: #E7F6EC;
+            --success-text: #1F7A4D;
+            --error-bg: #FDECEC;
+            --error-text: #B42318;
+            --loading-bg: #EAF2F3;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--surface-white);
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-teal);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .main-content {
+            display: block;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .section-padding {
+            padding: 60px 0;
+        }
+
+        .top-bar {
+            background-color: var(--primary-teal);
+            color: var(--surface-white);
+            font-size: 0.85rem;
+            padding: 8px 0;
+            width: 100%;
+        }
+
+        .top-bar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .top-bar-info span {
+            margin-right: 20px;
+            display: inline-block;
+        }
+
+        .top-bar-info i {
+            margin-right: 6px;
+            color: var(--accent-blue);
+        }
+
+        header {
+            background-color: var(--surface-white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-gray);
+            width: 100%;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo img {
+            height: 70px;
+            width: auto;
+            display: block;
+            border: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-item {
+            margin-left: 30px;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            font-size: 1rem;
+            color: var(--text-dark);
+            position: relative;
+            padding: 5px 0;
+            display: block;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary-teal);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-teal);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary-teal);
+        }
+
+        .page-header {
+            background:
+                linear-gradient(135deg, rgba(169, 201, 190, 0.55) 0%, rgba(95, 149, 158, 0.75) 55%, rgba(63, 111, 118, 0.9) 100%),
+                url('https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            padding: 80px 0;
+            color: var(--surface-white);
+            text-align: center;
+            width: 100%;
+            margin-bottom: 0;
+        }
+
+        .page-header h1 {
+            color: var(--surface-white);
+            font-size: 3rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.15);
+        }
+
+        .breadcrumbs {
+            font-size: 0.95rem;
+            opacity: 0.95;
+            color: var(--surface-white);
+            text-shadow: 0 1px 2px rgba(0,0,0,0.15);
+        }
+
+        .breadcrumbs a {
+            color: var(--surface-white);
+            font-weight: 600;
+        }
+
+        .contact-grid {
+            display: flex;
+            gap: 40px;
+            margin-top: 10px;
+            margin-bottom: 40px;
+            align-items: stretch;
+        }
+
+        .contact-info-panel {
+            flex: 1;
+            background-color: var(--bg-ivory);
+            padding: 40px;
+            border-radius: 12px;
+            border: 1px solid var(--border-gray);
+        }
+
+        .contact-info-panel h2 {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            color: var(--primary-dark);
+            font-weight: 600;
+        }
+
+        .contact-method-item {
+            display: flex;
+            margin-bottom: 35px;
+            align-items: flex-start;
+        }
+
+        .method-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-teal);
+            color: var(--surface-white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            margin-right: 20px;
+            flex-shrink: 0;
+            box-shadow: 0 4px 10px rgba(89, 149, 158, 0.15);
+        }
+
+        .method-details h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            color: var(--text-dark);
+        }
+
+        .method-details p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .contact-form-panel {
+            flex: 1.2;
+            background-color: var(--surface-white);
+            padding: 10px;
+        }
+
+        .contact-form-panel h2 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: var(--primary-dark);
+            font-weight: 600;
+        }
+
+        .form-subtitle {
+            color: var(--text-light);
+            margin-bottom: 30px;
+            font-size: 0.95rem;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 20px;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #D0D5DD;
+            border-radius: 8px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            color: var(--text-dark);
+            background-color: #FAFAFA;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-teal);
+            box-shadow: 0 0 0 3px rgba(79, 138, 139, 0.1);
+            background-color: var(--surface-white);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 140px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background-color: var(--primary-teal);
+            color: var(--surface-white);
+            border: 2px solid var(--primary-teal);
+            padding: 14px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 4px 12px rgba(89, 149, 158, 0.2);
+        }
+
+        .submit-btn:hover {
+            background-color: transparent;
+            color: var(--primary-teal);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+
+        .form-status {
+            display: none;
+            margin-bottom: 15px;
+            padding: 12px 14px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .form-status.loading {
+            display: block;
+            background-color: var(--loading-bg);
+            color: var(--text-dark);
+        }
+
+        .form-status.success {
+            display: block;
+            background-color: var(--success-bg);
+            color: var(--success-text);
+        }
+
+        .form-status.error {
+            display: block;
+            background-color: var(--error-bg);
+            color: var(--error-text);
+        }
+
+        .map-section {
+            height: 450px;
+            background-color: #EAF2F3;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-top: 20px;
+            margin-bottom: -110px;
+            position: relative;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.06);
+            border: 1px solid var(--border-gray);
+            z-index: 5;
+        }
+
+        .map-section iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        footer {
+            background-color: #1A252C;
+            color: #BAC4CB;
+            padding: 160px 0 20px 0;
+            font-size: 0.9rem;
+            width: 100%;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-logo img {
+            height: 65px;
+            margin-bottom: 20px;
+            border: none;
+        }
+
+        .footer-title {
+            color: var(--surface-white);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 8px;
+        }
+
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background-color: var(--secondary-sage);
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a:hover {
+            color: var(--surface-white);
+        }
+
+        .footer-contact li {
+            display: flex;
+            margin-bottom: 15px;
+            align-items: flex-start;
+        }
+
+        .footer-contact i {
+            color: var(--primary-teal);
+            margin-right: 12px;
+            margin-top: 4px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #2D3D47;
+            padding-top: 20px;
+            text-align: center;
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 992px) {
+            .contact-grid {
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 105px;
+                left: -100%;
+                background-color: var(--surface-white);
+                width: 100%;
+                height: calc(100vh - 105px);
+                flex-direction: column;
+                align-items: center;
+                padding-top: 40px;
+                box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+                transition: 0.4s ease;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-item {
+                margin: 20px 0;
+                margin-left: 0;
+            }
+
+            .page-header h1 {
+                font-size: 2.2rem;
+            }
+
+            .contact-info-panel {
+                padding: 30px 22px;
+            }
+
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+
+            .map-section {
+                height: 350px;
+                margin-bottom: -90px;
+            }
+
+            footer {
+                padding-top: 140px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .top-bar-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .top-bar-info span {
+                display: block;
+                margin-right: 0;
+                margin-bottom: 5px;
+            }
+
+            .logo img {
+                height: 60px;
+            }
+
+            .nav-menu {
+                top: 95px;
+                height: calc(100vh - 95px);
+            }
+
+            .page-header {
+                padding: 60px 0;
+            }
+
+            .page-header h1 {
+                font-size: 1.9rem;
+            }
+
+            .section-padding {
+                padding: 45px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="top-bar">
+        <div class="container top-bar-content">
+            <div class="top-bar-info">
+                <span><i class="fa-solid fa-phone"></i> 0404 920 503</span>
+                <span><i class="fa-solid fa-envelope"></i> sendu417@gmail.com</span>
+            </div>
+            <div>Get In Touch With Us</div>
+        </div>
+    </div>
+
+    <header>
+        <div class="container navbar">
+            <a href="index.html" class="logo">
+                <img src="logo.jpeg" alt="Serenity Place Logo">
+            </a>
+
+            <div class="menu-toggle" id="mobile-menu">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="about.html" class="nav-link">About Us</a></li>
+                <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
+                <li class="nav-item"><a href="contact.html" class="nav-link active">Contact Us</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="main-content">
+
+        <section class="page-header">
+            <div class="container">
+                <h1>Contact Our Care Team</h1>
+                <div class="breadcrumbs">
+                    <a href="index.html">Home</a> / Contact Us
+                </div>
+            </div>
+        </section>
+
+        <section class="section-padding">
+            <div class="container">
+
+                <div class="contact-grid">
+
+                    <div class="contact-info-panel">
+                        <h2>Our Contact Details</h2>
+                        <p style="color: var(--text-light); margin-bottom: 30px;">
+                            Feel free to connect directly through phone or email. We respond to all professional care inquiries within 24 working hours.
+                        </p>
+
+                        <div class="contact-method-item">
+                            <div class="method-icon">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div class="method-details">
+                                <h4>Office Location</h4>
+                                <p>U3/11 Shire Road,<br>Mount Gravatt QLD 4122</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-method-item">
+                            <div class="method-icon">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div class="method-details">
+                                <h4>Phone Numbers</h4>
+                                <p>0404 920 503<br>0411 297 262</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-method-item">
+                            <div class="method-icon">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div class="method-details">
+                                <h4>Email Address</h4>
+                                <p>sendu417@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-form-panel">
+                        <h2>Send an Online Enquiry</h2>
+                        <p class="form-subtitle">
+                            Please populate the structured form fields below to notify our client care coordinators.
+                        </p>
+
+                        <form id="contactForm">
+                            <input type="text" name="website" style="display:none;">
+
+                            <div id="formStatus" class="form-status"></div>
+
+                            <div class="form-group">
+                                <label for="full-name">Full Name *</label>
+                                <input
+                                    type="text"
+                                    id="full-name"
+                                    name="name"
+                                    class="form-control"
+                                    required
+                                    placeholder="e.g. John Doe"
+                                >
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="phone-num">Phone Number *</label>
+                                    <input
+                                        type="tel"
+                                        id="phone-num"
+                                        name="phone"
+                                        class="form-control"
+                                        required
+                                        placeholder="e.g. 0400 000 000"
+                                    >
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="email-add">Email Address *</label>
+                                    <input
+                                        type="email"
+                                        id="email-add"
+                                        name="email"
+                                        class="form-control"
+                                        required
+                                        placeholder="e.g. john@example.com"
+                                    >
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="interest">Interested Support Service</label>
+                                <input
+                                    type="text"
+                                    id="interest"
+                                    name="service_interest"
+                                    class="form-control"
+                                    placeholder="e.g. Flexible Respite, Daily Self-Care Assistance"
+                                >
+                            </div>
+
+                            <div class="form-group">
+                                <label for="msg">Your Message / Requirements *</label>
+                                <textarea
+                                    id="msg"
+                                    name="message"
+                                    class="form-control"
+                                    required
+                                    placeholder="Tell us how we can support your unique needs..."
+                                ></textarea>
+                            </div>
+
+                            <button type="submit" class="submit-btn" id="submitBtn">Submit Enquiry Form</button>
+                        </form>
+                    </div>
+
+                </div>
+
+                <div class="map-section">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3537.4578136274477!2d153.07630737625123!3d-27.548301520025997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b915b0b686d0615%3A0x64be630e2f5ffce3!2s3%2F11%20Shire%20Rd%2C%20Mount%20Gravatt%20QLD%204122%2C%20Australia!5e0!3m2!1sen!2slk!4v1718428800000!5m2!1sen!2slk"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container footer-grid">
+
+            <div class="footer-about">
+                <div class="footer-logo">
+                    <img src="logo.jpeg" alt="Serenity Place Logo White">
+                </div>
+                <p>Providing premium care services engineered to build trust and empower independence across Brisbane.</p>
+            </div>
+
+            <div>
+                <h4 class="footer-title">Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Our Services</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="footer-title">Local Presence</h4>
+                <ul class="footer-links">
+                    <li>Mount Gravatt, QLD</li>
+                    <li>Brisbane Aged Care</li>
+                    <li>In-Home Support</li>
+                    <li>Trusted Care Team</li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="footer-title">Contact Info</h4>
+                <ul class="footer-contact">
+                    <li>
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>U3/11 Shire Road, Mount Gravatt QLD</span>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-phone"></i>
+                        <span>0404 920 503 / 0411 297 262</span>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>sendu417@gmail.com</span>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 Serenity Place Community Care. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navMenu = document.querySelector('.nav-menu');
+
+        mobileMenu.addEventListener('click', function () {
+            navMenu.classList.toggle('active');
+
+            const icon = this.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-xmark');
+        });
+    </script>
+
+    <script>
+        const googleSheetURL = "https://script.google.com/macros/s/AKfycbyE_YJhKfwaIaLFer7nC1xpy7kRpbwuPZ8u9eT89S32J3IHog4vJJRPVn-a2vhOHPFg/exec";
+
+        const contactForm = document.getElementById("contactForm");
+        const formStatus = document.getElementById("formStatus");
+        const submitBtn = document.getElementById("submitBtn");
+
+        contactForm.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            formStatus.className = "form-status loading";
+            formStatus.innerText = "Submitting your enquiry...";
+            submitBtn.disabled = true;
+            submitBtn.innerText = "Submitting...";
+
+            fetch(googleSheetURL, {
+                method: "POST",
+                body: new FormData(contactForm),
+                mode: "no-cors"
+            })
+            .then(() => {
+                formStatus.className = "form-status success";
+                formStatus.innerText = "Thank you! Your enquiry has been submitted successfully.";
+                contactForm.reset();
+
+                submitBtn.disabled = false;
+                submitBtn.innerText = "Submit Enquiry Form";
+            })
+            .catch(() => {
+                formStatus.className = "form-status error";
+                formStatus.innerText = "Something went wrong. Please try again.";
+
+                submitBtn.disabled = false;
+                submitBtn.innerText = "Submit Enquiry Form";
+            });
+        });
+    </script>
+
+</body>
+</html>
