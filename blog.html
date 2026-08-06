@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Serenity Place Community Care</title>
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* CSS Reset & General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f4f7f6;
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background-color: #3b686c;
+            color: #ffffff;
+            padding: 10px 0;
+            font-size: 14px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .top-bar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-bar-info span {
+            margin-right: 25px;
+        }
+
+        .top-bar-info i {
+            margin-right: 8px;
+        }
+
+        /* Header Navigation */
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-link {
+            color: #4a5568;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            padding: 5px 0;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: #3b686c;
+            border-bottom: 2px solid #3b686c;
+        }
+
+        /* Page Hero Header Banner with Background Image */
+        .page-header {
+            position: relative;
+            background: linear-gradient(rgba(59, 104, 108, 0.75), rgba(59, 104, 108, 0.75)), 
+                        url('https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
+            padding: 90px 20px;
+            text-align: center;
+            color: #ffffff;
+        }
+
+        .page-header h1 {
+            font-size: 42px;
+            font-weight: 400;
+            font-family: 'Georgia', serif;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .page-header p {
+            font-size: 17px;
+            opacity: 0.95;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+
+        .breadcrumb {
+            margin-top: 12px;
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .breadcrumb a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        /* Blog Grid Layout */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 30px;
+            padding: 50px 0 60px;
+        }
+
+        /* Individual Card Style with Green/Teal Outline Border */
+        .blog-card {
+            background-color: #ffffff;
+            border-radius: 16px; /* Smooth rounded corners matching image */
+            overflow: hidden;
+            border: 2px solid #3b686c; /* Green/Teal Line Around Card */
+            box-shadow: 0 4px 15px rgba(59, 104, 108, 0.15);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        /* Mouse Over (Hover) Effect */
+        .blog-card:hover {
+            transform: translateY(-8px);
+            border-color: #2a4c4f; /* Slightly darker green on hover */
+            box-shadow: 0 12px 25px rgba(59, 104, 108, 0.3);
+        }
+
+        .blog-card-image {
+            position: relative;
+            width: 100%;
+            height: 210px;
+            background-color: #edf2f7;
+            overflow: hidden;
+        }
+
+        .blog-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .blog-card:hover .blog-card-image img {
+            transform: scale(1.05);
+        }
+
+        .badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: #3b686c;
+            color: #ffffff;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            z-index: 2;
+        }
+
+        .blog-card-content {
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .blog-title {
+            color: #1a202c;
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 1.4;
+            margin-bottom: 12px;
+            transition: color 0.3s ease;
+        }
+
+        .blog-card:hover .blog-title {
+            color: #3b686c;
+        }
+
+        .blog-excerpt {
+            color: #64748b;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .blog-meta {
+            display: flex;
+            gap: 15px;
+            color: #94a3b8;
+            font-size: 13px;
+            margin-top: auto;
+            margin-bottom: 15px;
+        }
+
+        .read-more-btn {
+            color: #3b686c;
+            background: none;
+            border: none;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 0;
+            text-align: left;
+        }
+
+        .read-more-btn:hover {
+            color: #2a4c4f;
+            text-decoration: underline;
+        }
+
+        /* Article Modal Popup */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1000;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background-color: #ffffff;
+            max-width: 850px;
+            margin: 40px auto;
+            padding: 35px;
+            border-radius: 12px;
+            position: relative;
+            color: #2c3e50;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border: 2px solid #3b686c;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 26px;
+            color: #a0aec0;
+            cursor: pointer;
+        }
+
+        .close-btn:hover {
+            color: #2d3748;
+        }
+
+        .modal-body h1 {
+            color: #2c3e50;
+            font-size: 26px;
+            margin-bottom: 15px;
+        }
+
+        .modal-body h2 {
+            color: #3b686c;
+            font-size: 20px;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+
+        .modal-article-img {
+            width: 100%;
+            max-height: 380px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .modal-body table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .modal-body th, .modal-body td {
+            border: 1px solid #e2e8f0;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .modal-body th {
+            background-color: #3b686c;
+            color: #ffffff;
+        }
+
+        .modal-body tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+
+        .modal-body ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .contact-box {
+            background-color: #eef6f6;
+            border-left: 4px solid #3b686c;
+            padding: 20px;
+            border-radius: 6px;
+            margin-top: 25px;
+        }
+
+        .contact-box h3 {
+            color: #3b686c;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .top-bar-content { flex-direction: column; gap: 5px; text-align: center; }
+            .blog-grid { grid-template-columns: 1fr; }
+            .page-header h1 { font-size: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container top-bar-content">
+            <div class="top-bar-info">
+                <span><i class="fa-solid fa-phone"></i> 0404 920 503</span>
+                <span><i class="fa-solid fa-envelope"></i> Tristargroup00@gmail.com</span>
+            </div>
+            <div>Professional & Trustworthy Care</div>
+        </div>
+    </div>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="container navbar">
+            <a href="index.html" class="logo">
+                <img src="logo.jpeg" alt="Serenity Place Logo">
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About Us</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="blog.html" class="nav-link active">Blog</a></li>
+                <li><a href="contact.html" class="nav-link">Contact Us</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Page Banner Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Serenity Place Care Blog</h1>
+            <p>Tips, Guides & News to help you navigate NDIS & Independent Living</p>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a> / Blog
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Dynamic Blog Grid Container -->
+        <div class="blog-grid" id="blogGrid">
+            <!-- Articles will automatically render here -->
+        </div>
+    </div>
+
+    <!-- Article Modal Popup -->
+    <div class="modal-overlay" id="articleModal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <div class="modal-body" id="modalBody">
+                <!-- Selected article contents will load here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT: Article Data & Dynamic Rendering -->
+    <script>
+        const articles = [
+            {
+                id: 1,
+                title: "What Is Supported Independent Living (SIL) Under the NDIS?",
+                category: "NDIS Guide",
+                date: "06 August 2026",
+                readTime: "5 min read",
+                image: "images/1.png",
+                excerpt: "Living independently while managing high or complex daily needs can feel like a significant challenge. Supported Independent Living (SIL) is an NDIS-funded support...",
+                fullContent: `
+                    <h1>What Is Supported Independent Living (SIL) Under the NDIS?</h1>
+                    <img src="images/1.png" alt="Supported Independent Living" class="modal-article-img">
+                    <p>Living independently while managing high or complex daily needs can feel like a significant challenge. Supported Independent Living (SIL) is an NDIS-funded support designed to help participants live as autonomously as possible in their own home or a shared community environment.</p>
+                    <p>At <strong>Serenity Place Community Care</strong>, we deliver person-centred SIL services across Brisbane and South East Queensland, ensuring you receive the daily support you need while maintaining complete choice and control over your life.</p>
+                    
+                    <h2>Defining Supported Independent Living (SIL)</h2>
+                    <p>Supported Independent Living focuses on person-to-person care. It covers the help, supervision, and skill-building assistance you receive daily to manage household tasks, personal routines, and healthcare needs.</p>
+                    <p><em>It is important to note that SIL funds the support services delivered inside the home—it does not cover rent, board, standard utility bills, or the cost of the physical housing itself.</em></p>
+
+                    <h2>Core Supports Included in SIL Services</h2>
+                    <p>Depending on your individual NDIS plan and support needs, SIL provides assistance with a wide range of everyday activities:</p>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Support Area</th>
+                                <th>What SIL Coverage Includes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Personal Care</strong></td>
+                                <td>Assistance with bathing, personal hygiene, grooming, dressing, and mobility.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Household Tasks</strong></td>
+                                <td>Support with meal planning, cooking, laundry, cleaning, and grocery shopping.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Health & Medication</strong></td>
+                                <td>Guidance with medication administration, health routines, and nursing visits.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Skill Development</strong></td>
+                                <td>Building independence in budgeting, home maintenance, and personal safety.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>24/7 Overnight Support</strong></td>
+                                <td>On-call, active night, or sleepover support depending on your high-intensity needs.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h2>Who Is Eligible for SIL Funding?</h2>
+                    <p>SIL funding is typically suited for NDIS participants who:</p>
+                    <ul>
+                        <li>Require 24/7 support or significant ongoing care throughout the day and night.</li>
+                        <li>Have high-intensity physical, cognitive, or behavioral support requirements.</li>
+                        <li>Are looking to build their capacity to live independently in a shared accommodation or individual home.</li>
+                    </ul>
+
+                    <h2>How Serenity Place Community Care Supports You in Brisbane</h2>
+                    <p>Choosing the right SIL provider ensures your daily routines are respected and your goals are prioritized. Serenity Place Community Care brings compassionate, high-quality care directly to your doorstep.</p>
+                    <ul>
+                        <li><strong>Tailored Care Plans:</strong> We build personalized schedules based on your preferences, cultural background, and lifestyle routines.</li>
+                        <li><strong>Qualified Care Team:</strong> Experienced support workers and registered nurses capable of handling both standard assistance and complex clinical needs.</li>
+                        <li><strong>Brisbane-Wide Reach:</strong> Supporting participants across Mount Gravatt, Eight Mile Plains, Sunnybank, Logan, Ipswich, Redlands, Moreton Bay, and the Gold Coast.</li>
+                    </ul>
+
+                    <div class="contact-box">
+                        <h3>Get in Touch with Our Brisbane NDIS Team</h3>
+                        <p>If you are exploring Supported Independent Living options or need assistance understanding your NDIS SIL funding, contact our local team today:</p>
+                        <p><strong>Address:</strong> 3/11 Shire Rd, Mount Gravatt QLD 4122, Australia<br>
+                        <strong>Phone:</strong> +61 7 3061 9187<br>
+                        <strong>Website:</strong> serenityplacecommunitycare.org<br>
+                        <strong>Open Hours:</strong> Monday – Friday: 9:00 AM – 5:00 PM | Saturday: 10:00 AM – 2:00 PM</p>
+                    </div>
+                `
+            }
+        ];
+
+        function renderBlogCards() {
+            const gridContainer = document.getElementById("blogGrid");
+            gridContainer.innerHTML = "";
+
+            articles.forEach(article => {
+                const cardHTML = `
+                    <div class="blog-card">
+                        <div class="blog-card-image">
+                            <img src="${article.image}" alt="${article.title}">
+                            <span class="badge">${article.category}</span>
+                        </div>
+                        <div class="blog-card-content">
+                            <h3 class="blog-title">${article.title}</h3>
+                            <p class="blog-excerpt">${article.excerpt}</p>
+                            <div class="blog-meta">
+                                <span><i class="fa-regular fa-calendar"></i> ${article.date}</span>
+                                <span><i class="fa-regular fa-clock"></i> ${article.readTime}</span>
+                            </div>
+                            <button class="read-more-btn" onclick="openArticle(${article.id})">
+                                Read More <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+                gridContainer.innerHTML += cardHTML;
+            });
+        }
+
+        function openArticle(id) {
+            const article = articles.find(a => a.id === id);
+            if (article) {
+                document.getElementById("modalBody").innerHTML = article.fullContent;
+                document.getElementById("articleModal").style.display = "block";
+                document.body.style.overflow = "hidden";
+            }
+        }
+
+        function closeModal() {
+            document.getElementById("articleModal").style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById("articleModal");
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+
+        renderBlogCards();
+    </script>
+
+</body>
+</html>
