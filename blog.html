@@ -135,12 +135,12 @@
             padding: 50px 0 60px;
         }
 
-        /* Individual Card Style with Green/Teal Outline Border */
+        /* Individual Card Style with Green Outline Border */
         .blog-card {
             background-color: #ffffff;
-            border-radius: 16px; /* Smooth rounded corners matching image */
+            border-radius: 16px;
             overflow: hidden;
-            border: 2px solid #3b686c; /* Green/Teal Line Around Card */
+            border: 2px solid #3b686c;
             box-shadow: 0 4px 15px rgba(59, 104, 108, 0.15);
             transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
             display: flex;
@@ -148,17 +148,16 @@
             position: relative;
         }
 
-        /* Mouse Over (Hover) Effect */
         .blog-card:hover {
             transform: translateY(-8px);
-            border-color: #2a4c4f; /* Slightly darker green on hover */
+            border-color: #2a4c4f;
             box-shadow: 0 12px 25px rgba(59, 104, 108, 0.3);
         }
 
         .blog-card-image {
             position: relative;
             width: 100%;
-            height: 210px;
+            height: 240px;
             background-color: #edf2f7;
             overflow: hidden;
         }
@@ -213,6 +212,7 @@
             line-height: 1.6;
             margin-bottom: 20px;
             display: -webkit-box;
+            line-clamp: 3;
             -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;
             overflow: hidden;
@@ -262,7 +262,7 @@
 
         .modal-content {
             background-color: #ffffff;
-            max-width: 850px;
+            max-width: 900px;
             margin: 40px auto;
             padding: 35px;
             border-radius: 12px;
@@ -298,12 +298,15 @@
             margin-bottom: 10px;
         }
 
-        .modal-article-img {
+        /* Bottom Article Image Styling */
+        .modal-article-img-bottom {
             width: 100%;
-            max-height: 380px;
-            object-fit: cover;
+            height: auto;
+            object-fit: contain;
             border-radius: 8px;
+            margin-top: 25px;
             margin-bottom: 20px;
+            border: 1px solid #e2e8f0;
             box-shadow: 0 2px 8px rgba(0,0,0,0.08);
         }
 
@@ -424,7 +427,6 @@
                 excerpt: "Living independently while managing high or complex daily needs can feel like a significant challenge. Supported Independent Living (SIL) is an NDIS-funded support...",
                 fullContent: `
                     <h1>What Is Supported Independent Living (SIL) Under the NDIS?</h1>
-                    <img src="images/1.png" alt="Supported Independent Living" class="modal-article-img">
                     <p>Living independently while managing high or complex daily needs can feel like a significant challenge. Supported Independent Living (SIL) is an NDIS-funded support designed to help participants live as autonomously as possible in their own home or a shared community environment.</p>
                     <p>At <strong>Serenity Place Community Care</strong>, we deliver person-centred SIL services across Brisbane and South East Queensland, ensuring you receive the daily support you need while maintaining complete choice and control over your life.</p>
                     
@@ -490,6 +492,84 @@
                         <strong>Website:</strong> serenityplacecommunitycare.org<br>
                         <strong>Open Hours:</strong> Monday – Friday: 9:00 AM – 5:00 PM | Saturday: 10:00 AM – 2:00 PM</p>
                     </div>
+
+                    <!-- Article Image at the Bottom -->
+                    <img src="images/1.png" alt="Supported Independent Living" class="modal-article-img-bottom">
+                `
+            },
+            {
+                id: 2,
+                title: "Who Is Eligible for Supported Independent Living (SIL) Funding?",
+                category: "NDIS Guide",
+                date: "07 August 2026",
+                readTime: "6 min read",
+                image: "images/2.png",
+                excerpt: "Determining eligibility for Supported Independent Living (SIL) requires meeting specific criteria set by the National Disability Insurance Agency (NDIA)...",
+                fullContent: `
+                    <h1>Who Is Eligible for Supported Independent Living (SIL) Funding?</h1>
+                    <p>Determining eligibility for Supported Independent Living (SIL) requires meeting specific criteria set by the National Disability Insurance Agency (NDIA). SIL is tailored for individuals with higher support needs who require continuous, ongoing assistance to live comfortably and safely in a home environment.</p>
+                    <p>At <strong>Serenity Place Community Care</strong>, we assist participants across Brisbane and South East Queensland in understanding SIL requirements and delivering personalized support tailored to their NDIS goals.</p>
+
+                    <h2>1. General NDIS Access Criteria</h2>
+                    <p>Before receiving SIL funding, you must first be an approved NDIS participant. General requirements include:</p>
+                    <ul>
+                        <li><strong>Age:</strong> Must be under 65 years old when applying to the NDIS (SIL is typically assessed for participants aged 18 and older).</li>
+                        <li><strong>Residency:</strong> Must be an Australian citizen, permanent resident, or Protected Special Category Visa holder living in Australia.</li>
+                        <li><strong>Disability Requirement:</strong> Must have a permanent and significant disability that impacts your ability to perform daily activities.</li>
+                    </ul>
+
+                    <h2>2. Key SIL Eligibility Requirements</h2>
+                    <p>To qualify specifically for SIL funding within your NDIS plan, the NDIA evaluates whether continuous home-based support is "reasonable and necessary" for your situation.</p>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Criteria</th>
+                                <th>What NDIA Assesses</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>High Support Frequency</strong></td>
+                                <td>You need significant daily person-to-person support (usually 24/7 or substantial ongoing supervision across the day and night).</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Home & Living Goals</strong></td>
+                                <td>Your NDIS plan includes specific goals related to building living skills, transitioning to independent housing, or living in a shared accommodation.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Functional Need</strong></td>
+                                <td>You require ongoing assistance with daily tasks such as personal care, hygiene, meal preparation, medication, or behavioral support.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Limitations of Intermittent Care</strong></td>
+                                <td>Standard drop-in support or a few hours of weekly assistance are insufficient to safely maintain your independence.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h2>3. Essential Evidence Required for SIL Applications</h2>
+                    <p>To establish eligibility, you must submit comprehensive clinical and functional evidence to the NDIA:</p>
+                    <ul>
+                        <li><strong>Functional Capacity Assessment (FCA):</strong> Prepared by an Occupational Therapist (OT) detailing your daily care routines, safety risks, and functional constraints.</li>
+                        <li><strong>NDIS Home and Living Supporting Evidence Form:</strong> Demonstrating your housing preferences and support requirements.</li>
+                        <li><strong>Roster of Care (RoC):</strong> A detailed breakdown showing the exact hourly ratio of support staff required throughout a typical week.</li>
+                        <li><strong>Allied Health Reports:</strong> Supporting documentation from psychologists, speech pathologists, or clinical nurses detailing complex care needs.</li>
+                    </ul>
+
+                    <h2>How Serenity Place Community Care Helps</h2>
+                    <p>Navigating SIL eligibility and organizing care plans can feel overwhelming. Serenity Place Community Care works directly with participants, family members, and Support Coordinators across Brisbane, Logan, Ipswich, Redlands, Moreton Bay, and the Gold Coast to build suitable SIL support rosters.</p>
+
+                    <div class="contact-box">
+                        <h3>Get in Touch with Our Brisbane NDIS Team</h3>
+                        <p><strong>Address:</strong> 3/11 Shire Rd, Mount Gravatt QLD 4122, Australia<br>
+                        <strong>Phone:</strong> +61 7 3061 9187<br>
+                        <strong>Website:</strong> serenityplacecommunitycare.org<br>
+                        <strong>Open Hours:</strong> Monday – Friday: 9:00 AM – 5:00 PM | Saturday: 10:00 AM – 2:00 PM</p>
+                    </div>
+
+                    <!-- Article Image at the Bottom -->
+                    <img src="images/2.png" alt="SIL Eligibility NDIS" class="modal-article-img-bottom">
                 `
             }
         ];
